@@ -1,0 +1,24 @@
+.forms-UI .react-datepicker__view-calendar-icon input {
+    padding-left: 10px;
+}
+.forms-UI .react-datepicker-wrapper .react-datepicker__calendar-icon {
+        right: 8px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+
+}
+.react-datepicker__year-dropdown, .react-datepicker__month-dropdown, .react-datepicker__month-year-dropdown {
+        max-height: 150px;
+    overflow-y: scroll;
+}
+.forms-UI .items-center {
+    text-transform: capitalize;
+}
+.forms-UI .react-datepicker-wrapper {
+    width: 100%;
+}
+.input-coloumnform {
+    display: flex;
+    flex-direction: column;
+}

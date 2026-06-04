@@ -1,0 +1,34 @@
+runtime: nodejs20
+service: maven-visa
+
+env_variables:
+  NODE_ENV: production
+
+handlers:
+  # Serve static assets like JS, CSS, etc.
+  - url: /static
+    static_dir: build/static
+    secure: always
+    http_headers:
+      Cache-Control: "public, max-age=86400"
+
+  # Serve common public files (favicon, manifest, sitemap, etc.)
+  - url: /(.*\.(json|ico|png|jpg|svg|xml|txt))$
+    static_files: build/\1
+    upload: build/.*\.(json|ico|png|jpg|svg|xml|txt)$
+    secure: always
+    http_headers:
+      Cache-Control: "public, max-age=86400"
+
+  # Catch-all handler for SPA routing
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
+    secure: always
+    http_headers:
+      Cache-Control: "no-cache, no-store, must-revalidate"
+      Expires: "0"
+      Pragma: "no-cache"
+
+manual_scaling:
+  instances: 2
